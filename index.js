@@ -5,7 +5,7 @@ const PORT = 3001;
 
 app.get('/api', async (req, res) => {
     try {
-        const bootstrapResponse = await axios.get('https://jsonplaceholder.typicode.com/todos/1', {
+        const bootstrapResponse = await axios.get('https://fantasy.premierleague.com/api/bootstrap-static/', {
             headers: {
                 'User-Agent': 'FPL-Website/1.0'
             }
