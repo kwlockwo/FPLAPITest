@@ -5,14 +5,13 @@ const PORT = 3001;
 
 app.get('/api', async (req, res) => {
     try {
-        const bootstrapResponse = await axios.get('https://fantasy.premierleague.com/api/bootstrap-static/', {
+        const bootstrapResponse = await axios.get('https://jsonplaceholder.typicode.com/todos/1', {
             headers: {
                 'User-Agent': 'FPL-Website/1.0'
             }
         });
         try {
-            const currentGameweek = bootstrapResponse.data.events.find(event => event.is_current).id;
-        res.json({ currentGameweek });
+        res.send(bootstrapResponse.data);
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Failed to fetch current gameweek' });
